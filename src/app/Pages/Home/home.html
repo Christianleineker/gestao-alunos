@@ -1,0 +1,49 @@
+<div *ngIf="alunos.length > 0; else semAlunos" class="my-3">
+  <div class="input-group w-50 mx-auto">
+    <input type="text" class="form-control" placeholder="Buscar Aluno..." aria-label="Buscar Aluno" [(ngModel)]="filtro">
+  </div>
+
+  <div class="container mt-4">
+    <table class="table table-striped table-bordered text-black">
+      <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Nome</th>
+          <th scope="col">Período</th>
+          <th scope="col">Turma</th>
+          <th scope="col">Nota 1</th>
+          <th scope="col">Nota 2</th>
+          <th scope="col">Média</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let aluno of alunosFiltrados; let i = index">
+          <th scope="row">{{aluno.id}}</th>
+          <td>{{aluno.nome}}</td>
+          <td>{{aluno.periodo}}</td>
+          <td>{{aluno.turma}}</td>
+          <td [ngClass]="{'red': aluno.nota1 < 6, 'green': aluno.nota1 > 5.9}">{{aluno.nota1}}</td>
+          <td [ngClass]="{'red': aluno.nota2 < 6, 'green': aluno.nota2 > 5.9}">{{aluno.nota2}}</td>
+          <td [ngClass]="{'red': aluno.media < 6, 'green': aluno.media > 5.9}">{{aluno.media | number:'1.2-2'}}</td>
+            <td class="text-center">
+              <button class="btn btn-warning" [routerLink]="[cadastroRouter, aluno.id]">
+                <i class="bi bi-pencil-square"></i>
+              </button>
+            </td>
+            <td class="text-center">
+              <button class="btn btn-danger" (click)="excluirAluno(i)">
+                <i class="bi bi-x-circle"></i>
+              </button>
+            </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+    <ng-template #semAlunos>
+      <div class="d-flex align-items-center justify-content-center mt-4 gap-2" style="height: 50vh">
+        <p class="fs-5 text mb-0 d-flex align-items-center">Nenhum Aluno foi encontrado.</p>
+        <button [routerLink]="cadastroRouter" class="btn btn-primary">Adicionar</button>
+      </div>
+    </ng-template>
