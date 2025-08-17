@@ -70,34 +70,44 @@ A aplicação oferece navegação intuitiva entre as telas usando o **Router do 
 1. Clone o repositório:
 ```bash
 git clone https://github.com/Christianleineker/gestao-alunos.git
+```
 
 Entre na pasta do projeto:
-        cd gestao-alunos
+```bash
+cd gestao-alunos
+```
 
 Instale as dependências:
-        npm install
-        
+```bash
+npm install
+```
 Execute a aplicação:
-        ng serve
+```bash
+ng serve
+```
 
 Acesse no navegador:
-        http://localhost:4200
-
+```bash
+http://localhost:4200
+```
 
 ## Como Contribuir
 
 1. Faça um fork deste repositório.
 2. Crie uma branch para sua feature:
-
+```bash
     git checkout -b minha-feature
+```
 
 3. Faça suas alterações e commit:
-
+```bash
     git commit -m "Minha contribuição"
+```
 
 4. Envie para o seu fork:
-
+```bash
     git push origin minha-feature
+```
 
 5. Abra um Pull Request no repositório principal.
 
